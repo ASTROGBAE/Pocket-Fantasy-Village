@@ -1,39 +1,44 @@
+import java.time.Duration;
+import java.time.LocalDateTime;
+
 public class Village {
     // food increases during harvest months
-    // spring is sowing (prod), summer is growing (prod), autunm is harvest (getting the food), winter is rest (nothing much happening)
-    private int population, // = 1 person
-    food; // daily intake per person
-    double production; // portion of population working daily
-    private int year = 365; // set to get year, base on date object for leap years
+    // don't worry about seasons yet! too complicated
+    private int production; // generic variable for "health" of the city, expand to other variables later!
+    private LocalDateTime previousDate;
 
-    enum Season {WINTER, SPRING, SUMMER, AUTUNM}
     public Village () {
-        population = 10;
-        food = year*population; // starting food is enough for 1 year with current population
-        production = 1;
+        production = 10;
+        previousDate = LocalDateTime.now();
     }
 
-    // daily imcrement for first iteration
-    public void updateDaily() {
-        Season cur = getSeason();
-        switch(cur) {
-            // TODO how do you gain food?
-            case WINTER:
-                // nothing
-            case SPRING:
-                production -= 1; // TODO update these thingies
-            case SUMMER:
-                production =- 1;
-            case AUTUNM:
-                food =- population; //TODO make food dependant on population? So one daily food intake of one person
+    // log the present time of day and update existing village
+    public void logPresent() {
+        long daysDifference = daysElapsed(LocalDateTime.now());
+        if (daysDifference != 0) { // if the day has changed, update for each day!
+            for (long day = daysDifference; day > 0; day --) {
+                updateDaily();
+            }
         }
     }
 
-    // return 0 for winter, 1 for spring, 2 for summer, 3 for autunm 
-    private Season getSeason() {
-        //TODO implement with date object!
-        return 0;
+    // outputs how many days have passed since last log
+    public long daysElapsed(LocalDateTime presentDate) {
+        return Duration.between(previousDate, presentDate).toDays();
     }
+
+    // daily imcrement for first iteration (just generic increase now)
+    // assumes day is indeed different
+    public void updateDaily() {
+        production +=1;
+    }
+
+    // town is attacked! lose 1 production
+    public void attack() {
+        production -=1;
+    }
+
+
 
     // TODO add methods for isAdbandoned, basic attacks, etc. 
 
