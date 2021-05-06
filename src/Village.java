@@ -5,7 +5,9 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Village {
     // food increases during harvest months
     // don't worry about seasons yet! too complicated
-    // TODO: implement a change system by which the town can be attacked evey day
+    // TODO implement a function to check season, have events that change based on season
+    // TODO implement a function to check if a public holiday or something??
+    // TODO implement some sort of text output, file IO for daily log of production?
     private int production; // generic variable for "health" of the city, expand to other variables later!
     private LocalDateTime previousDate;
 
@@ -16,14 +18,16 @@ public class Village {
 
     // TODO System only works on the timescale of days. Keep it this way for now but update later for smaller timescales, too 
     // log the present time of day and update existing village
-    public void logPresent() {
+    public void logToPresent() {
         long daysDifference = daysElapsed(LocalDateTime.now());
         if (daysDifference != 0) { // if the day has changed, update
-            for (long day = daysDifference; day > 0; day --) { // iterate through each day passed
+            for (long day = daysDifference; day > 0; day --) { // iterate through each day passed, TODO might be more efficient to make this recursive!
                 updateDaily();
             }
         }
     }
+
+    // TODO create recursive update daily method, use in above logToPresent
 
     // outputs how many days have passed since last log
     public long daysElapsed(LocalDateTime presentDate) {
