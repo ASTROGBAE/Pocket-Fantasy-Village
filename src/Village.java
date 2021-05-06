@@ -6,14 +6,18 @@ public class Village {
     // food increases during harvest months
     // don't worry about seasons yet! too complicated
     // TODO implement a function to check season, have events that change based on season
+    // TODO implement an event interface class
     // TODO implement a function to check if a public holiday or something??
     // TODO implement some sort of text output, file IO for daily log of production?
+    private String name; // name of village
     private int production; // generic variable for "health" of the city, expand to other variables later!
-    private LocalDateTime previousDate;
+    private LocalDateTime previousDate, startDate;
 
-    public Village () {
+    public Village (LocalDateTime initStart) {
+        name = "Genericville"; //TODO make a name generator or prompt for input?
         production = 10;
-        previousDate = LocalDateTime.now();
+        startDate = initStart;
+        previousDate = initStart;
     }
 
     // TODO System only works on the timescale of days. Keep it this way for now but update later for smaller timescales, too 
@@ -57,6 +61,7 @@ public class Village {
         return false;
     }
 
+    //TODO: move into attack/event class
     // town is attacked! lose between 1 and 5 production (makes it more interesting)
     public void attack() {
         production -= ThreadLocalRandom.current().nextInt(0, 6);
