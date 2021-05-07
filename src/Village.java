@@ -20,9 +20,21 @@ public class Village {
         previousDate = initStart;
     }
 
+    // get methods
+
+    public int getProduction() {
+        return production;
+    }
+
+    public LocalDateTime getPreviousDate() {
+        return previousDate;
+    }
+
+    // other methods
+
     // TODO System only works on the timescale of days. Keep it this way for now but update later for smaller timescales, too 
     // log new date and update existing village from previous log
-    public void log(LocalDateTime newDate) {
+    public void passTime(LocalDateTime newDate) {
         long daysDifference = daysAfter(newDate);
         if (daysDifference != 0) { // if the day has changed is later, update
             for (long day = daysDifference; day > 0; day --) { // iterate through each day passed, TODO might be more efficient to make this recursive!
@@ -33,7 +45,7 @@ public class Village {
 
     // TODO create recursive update daily method, use in above logToPresent
 
-    // outputs how many days have passed since last log
+    // outputs how many days have passed since last passTime
     public long daysAfter(LocalDateTime newDate) {
         if (previousDate.isBefore(newDate)) { // if date is after
             return Duration.between(previousDate, newDate).toDays();
