@@ -1,3 +1,5 @@
+import java.time.LocalDateTime; 
+
 public interface Event {
-    public int modProduction();
+    public double modProduction(LocalDateTime inputDate);
 }
