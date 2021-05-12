@@ -10,7 +10,7 @@ public class Village {
     // TODO implement a function to check if a public holiday or something??
     // TODO implement some sort of text output, file IO for daily log of production?
     private String name; // name of village
-    private int production; // generic variable for "health" of the city, expand to other variables later!
+    private double production; // generic variable for "health" of the city, expand to other variables later!
     private LocalDateTime previousDate, startDate;
 
     public Village (LocalDateTime initStart) {
@@ -22,7 +22,11 @@ public class Village {
 
     // get methods
 
-    public int getProduction() {
+    public String getName() {
+        return name;
+    }
+
+    public double getProduction() {
         return production;
     }
 
@@ -32,18 +36,7 @@ public class Village {
 
     // other methods
 
-    // TODO create recursive update daily method, use in above logToPresent
-
-    // outputs how many days have passed since last passTime
-    public long daysAfter(LocalDateTime newDate) {
-        if (previousDate.isBefore(newDate)) { // if date is after
-            return Duration.between(previousDate, newDate).toDays();
-        }
-        return 0;
+    public void addProduction(double addition) {
+        production += addition;
     }
-
-
-
-    // TODO add methods for isAdbandoned, basic attacks, etc. 
-
 }

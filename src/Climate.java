@@ -7,15 +7,15 @@ public class Climate implements Event {
     }
 
     private Double calculateYield(int x) {
-        double maxYield = 50;
+        double maxYield = 1;
         double period = 365.26;
-        double phase = -period/4;
-        double vertshift = maxYield/2;
-        return maxYield*Math.sin(2*Math.PI/period*(x+phase))+vertshift;
+        double phase = period/8;
+        double vertshift = 0; //maxYield/2;
+        return maxYield*Math.cos((2*Math.PI/period)*(x+phase))+vertshift;
     }
 
     @Override
-    public double modProduction(LocalDateTime inputDate) {
+    public double getProduction(LocalDateTime inputDate) {
         return calculateYield(inputDate.getDayOfYear()); // only works on the timescale of a year at present
     }
     
