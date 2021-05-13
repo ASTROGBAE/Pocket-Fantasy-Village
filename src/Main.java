@@ -12,9 +12,9 @@ public class Main {
 
         // loop for testing
         for (int i = 0; i < 365; i ++) {
-            logger.update(town.getProduction());
+            logger.update(date.toString() + "," + String.valueOf(town.getProduction())); // make this functionality in the log file
             System.out.println(town.getProduction());
-            double dailyProduction = world.getProduction(date) - bandits.getProduction(date); //TODO make a list of events and iterate through them instead
+            double dailyProduction = world.getProduction(date);// - bandits.getProduction(date); //TODO make a list of events and iterate through them instead
             town.addProduction(dailyProduction);
             date = date.plusDays(1);
         }

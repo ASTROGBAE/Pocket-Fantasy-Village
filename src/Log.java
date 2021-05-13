@@ -3,18 +3,20 @@ import java.io.PrintWriter;
 
 public class Log {
 
+    //TODO: add process for when file already exists so it doesn't just throw an error...
+
     private PrintWriter logger;
 
     public Log (String villageName) {
         try {
-            logger = new PrintWriter(villageName + ".txt", "UTF-8"); // from w3 schools lol
+            logger = new PrintWriter(villageName + "_stats.cvs", "UTF-8"); // from w3 schools lol
           } catch (IOException e) {
             e.printStackTrace();
           }
     }
 
-    public void update (double value) {
-        logger.println(String.valueOf(value));
+    public void update (String value) { // make more specific to certain values per record?
+        logger.println(value);
         System.out.println('W');
         }
 
