@@ -1,7 +1,6 @@
 import java.time.LocalDateTime;
-import java.util.concurrent.ThreadLocalRandom;
 
-public class Attackers implements Event {
+public class Attackers extends Utilities implements Event {
 
     // TODO implement constructor (threat modifier?)
 
@@ -9,7 +8,7 @@ public class Attackers implements Event {
     // calculate chance for town to be attacked (in percentages)
     public boolean isAttacked() {
         int attackChance = 10;
-        int randomPerc = ThreadLocalRandom.current().nextInt(0, 101);
+        int randomPerc = randInt(0, 101);
         if (randomPerc < attackChance) {
             return true;
         }
@@ -19,7 +18,7 @@ public class Attackers implements Event {
     // town is attacked! lose between 1 and 5 production (makes it more interesting)
     public double attack() {
         if (isAttacked()) {
-            return ThreadLocalRandom.current().nextInt(0, 6);
+            return randInt(10, 50);
         }
         return 0;
     }
