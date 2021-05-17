@@ -1,6 +1,5 @@
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Village {
     // food increases during harvest months
