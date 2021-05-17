@@ -13,6 +13,7 @@ public class Log {
           } catch (IOException e) {
             e.printStackTrace();
           }
+          logger.println("Date,Production");
     }
 
     public void update (String value) { // make more specific to certain values per record?
