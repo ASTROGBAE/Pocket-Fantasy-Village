@@ -1,22 +1,21 @@
 import java.lang.Math.*;
 import java.time.LocalDateTime;
 
-public class Climate implements Event {
+public class Climate extends Utilities implements Event {
+
+    double pressureCoefficient;
 
     public Climate() {
+        pressureCoefficient = randDouble(0, 365);
     }
 
-    private Double calculateYield(int x) {
-        double maxYield = 1;
-        double period = 365.26;
-        double phase = period/8;
-        double vertshift = 0; //maxYield/2;
-        return maxYield*Math.cos((2*Math.PI/period)*(x+phase))+vertshift;
+    private double calculatePressure() { // have normally distributed, with a slight chance of going nuts!
+        return 0;
     }
 
     @Override
-    public double getProduction(LocalDateTime inputDate) {
-        return calculateYield(inputDate.getDayOfYear()); // only works on the timescale of a year at present
+    public double getValue(LocalDateTime inputDate) {
+        return 0; // only works on the timescale of a year at present
     }
     
 }
