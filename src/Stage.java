@@ -6,8 +6,8 @@ public class Stage {
     Village town;
     ArrayList<Event> events;
 
-    public Stage(LocalDateTime date) {
-        town = new Village(date);
+    public Stage(Village _town) {
+        town = _town;
         events = new ArrayList<Event>();
         // add all events to the list here
     }

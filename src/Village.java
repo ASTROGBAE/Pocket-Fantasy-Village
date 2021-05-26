@@ -9,14 +9,16 @@ public class Village {
     // TODO implement a function to check if a public holiday or something??
     // TODO implement some sort of text output, file IO for daily log of production?
     private String name; // name of village
-    private double production; // generic variable for "health" of the city, expand to other variables later!
+    private int population;
+    private double food; // daily food intake/person
     private LocalDateTime previousDate, startDate;
 
-    public Village (LocalDateTime initStart) {
-        name = "Genericville"; //TODO make a name generator or prompt for input?
-        production = 10;
-        startDate = initStart;
-        previousDate = initStart;
+    public Village (String _name, LocalDateTime _initStart) {
+        name = _name; //TODO make a name generator or prompt for input?
+        population = 10;
+        food = population*10;
+        startDate = _initStart;
+        previousDate = _initStart;
     }
 
     // get methods
@@ -25,17 +27,25 @@ public class Village {
         return name;
     }
 
-    public double getProduction() {
-        return production;
-    }
-
     public LocalDateTime getPreviousDate() {
         return previousDate;
     }
 
-    // other methods
+    public int getPopulation() {
+        return population;
+    }
 
-    public void addProduction(double addition) {
-        production += addition;
+    public double getFood() {
+        return food;
+    }
+
+    // modify values
+
+    public void changePopulation(int change) {
+        population += change;
+    }
+
+    public void changeFood(double change) {
+        food += change;
     }
 }
