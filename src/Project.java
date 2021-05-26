@@ -17,13 +17,13 @@ public class Project extends Utilities {
         ratio = setRatio;
     }
 
-    private void build(int customer) { // update every tick. // TODO return generic value for staging area????
-        int target = (int)ratio*customer;
-        int demand = projects; 
+    public double updateProject(int customer) {
+        int target = (int)ratio*customer; // TODO: fix event problem!
+        int demand = target-projects; 
         // if (demand == 0), do nothing!
         if (demand>0) { // not enough projects for target! Roll to increase
-            for (int i = projects; i < target; i ++) { // for every project value below the target, there is a change the number will grow! (10% for now)
-                if (getPercentChance(1*target)) { // TODO: upper bound this below 100 or make it scale waaaay slower? Will always succeed if too big. Use logarithm?
+            for (int i = 0; i < demand; i ++) { // for every project value below the target, there is a change the number will grow! (10% for now)
+                if (getPercentChance(1*demand)) { // TODO: upper bound this below 100 or make it scale waaaay slower? Will always succeed if too big. Use logarithm?
                     projects++;
                 }
             }
@@ -31,5 +31,6 @@ public class Project extends Utilities {
         else { // target < projects, any excess project is automatically abadoned. 
             projects = target;
         }
+        return 0;
     }
 }
