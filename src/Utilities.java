@@ -16,7 +16,7 @@ public abstract class Utilities {
         return st*ThreadLocalRandom.current().nextGaussian();
     }
 
-    boolean getPercentChance(int chance) {
+    boolean getPercentChance(int chance) { // TODO: what if chance greater than 100? Does it matter? Will always return true...
         int roll = randInt(1, 101);
         if (roll < chance) {
             return false;
