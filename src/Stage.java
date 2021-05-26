@@ -8,7 +8,14 @@ public class Stage {
 
     public Stage(Village _town) {
         town = _town;
-        events = new ArrayList<Event>();
+        events = new ArrayList<Event>(); // make this sequence concurrency later
+        // global
+        events.add(new Climate()); // does nothing right now, void
+        // projects
+        events.add(new Farms(10));
+        // threats
+        events.add(new Threat("bandits", 10, 5, 20));
+        events.add(new Threat("dragon", 3, 100, 500));
         // add all events to the list here
     }
 

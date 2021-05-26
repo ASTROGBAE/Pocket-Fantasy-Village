@@ -14,7 +14,7 @@ public class Farms extends Utilities implements Event {
 
     @Override
     public void update(Village town) {
-        double yield = town.getPopulation();
-        town.changeFood(yield); // update food value
+        int population = town.getPopulation();
+        town.changeFood(calculateYield(population)); // update food value
     }
 }
