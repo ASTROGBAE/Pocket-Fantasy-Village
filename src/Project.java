@@ -12,9 +12,9 @@ public class Project extends Utilities {
     private float ratio; // ratio of projects needed per customer.
     private int projects;
 
-    public Project (int startingProjects, float setRatio) {
-        projects = startingProjects; 
-        ratio = setRatio;
+    public Project (int _projects, float _ratio) {
+        projects = _projects; 
+        ratio = _ratio;
     }
 
     public double updateProject(int customer) {

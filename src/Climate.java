@@ -14,7 +14,7 @@ public class Climate extends Utilities implements Event {
     }
 
     @Override
-    public void update(Village subjectVillage) {
+    public void update(Village town) {
         // only works on the timescale of a year at present
     }
     
