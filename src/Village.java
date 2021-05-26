@@ -9,7 +9,7 @@ public class Village {
     // TODO implement a function to check if a public holiday or something??
     // TODO implement some sort of text output, file IO for daily log of production?
     private String name; // name of village
-    private int population;
+    private int population; // TODO: add plots field
     private double food; // daily food intake/person
     private LocalDateTime previousDate, startDate;
 
