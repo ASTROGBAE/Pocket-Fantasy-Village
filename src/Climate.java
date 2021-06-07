@@ -3,6 +3,8 @@ import java.time.LocalDateTime;
 
 public class Climate extends Utilities implements Event {
 
+    // TODO: this class does nothing right now, bare-bones Event functionality works, though.
+
     double pressureCoefficient;
 
     public Climate() {
