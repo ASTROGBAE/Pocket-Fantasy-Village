@@ -17,6 +17,14 @@ public class Project extends Utilities {
         ratio = _ratio;
     }
 
+    // get methods
+
+    public int getProjects() {
+        return protects; 
+    }
+
+    // general methods
+
     public double updateProject(int customer) {
         int target = (int)ratio*customer; // TODO: fix event problem!
         int demand = target-projects; 
