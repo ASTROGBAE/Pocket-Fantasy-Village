@@ -16,12 +16,21 @@ public class Log {
           logger.println("Date,Production");
     }
 
-    public void update (String value) { // make more specific to certain values per record?
-        logger.println(value);
-        System.out.println('W');
+    // record methods
+
+    public void recordStart () {
+        logger.println("population,food"); // label row
+    }
+
+    public void recordDay (String[] valueArr) { // make more specific to certain values per record?
+        for (String value: valueArr) { // iterate through array, add all values to each col
+            logger.print(value + ','); // go by column
+        }
+        logger.println(); // end of row
+        System.out.println('W'); // debugger
         }
 
-    public void close() {
+    public void recordEnd() {
         logger.close();
     }
     
