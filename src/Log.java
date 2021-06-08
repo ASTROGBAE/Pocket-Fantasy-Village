@@ -16,6 +16,7 @@ public class Log {
     }
 
     // record methods
+    // TODO: add date column!!!!
 
     public void recordStart () {
         logger.println("population,food"); // label row
