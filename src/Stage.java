@@ -3,8 +3,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Stage {
-    Village town;
-    ArrayList<Event> events;
+    private Village town;
+    private ArrayList<Event> events;
 
     public Stage(Village _town) {
         town = _town;
@@ -19,10 +19,19 @@ public class Stage {
         // add all events to the list here
     }
 
-    public void update() { // iterate through all events
+    // get methods
+
+    public Village getVillage() {
+        return town;
+    }
+
+    // other methods
+
+    public void updateDay() { // iterate through all events for a day
         Iterator<Event> eventIt = events.iterator();
         while (eventIt.hasNext()) {
-            eventIt.next().update(town);
+            eventIt.next().updateEventDaily(town);
         }
+        town.addDay(); // pass day now that everything has happened.
     }
 }

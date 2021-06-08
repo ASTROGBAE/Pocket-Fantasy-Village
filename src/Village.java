@@ -11,14 +11,14 @@ public class Village {
     private String name; // name of village
     private int population; // TODO: add plots field
     private double food; // daily food intake/person
-    private LocalDateTime previousDate, startDate;
+    private LocalDateTime curDate, startDate;
 
     public Village (String _name, LocalDateTime _initStart) {
         name = _name; //TODO make a name generator or prompt for input?
         population = 10;
         food = population*10;
         startDate = _initStart;
-        previousDate = _initStart;
+        curDate = _initStart;
     }
 
     // get methods
@@ -27,8 +27,8 @@ public class Village {
         return name;
     }
 
-    public LocalDateTime getPreviousDate() {
-        return previousDate;
+    public LocalDateTime getCurDate() {
+        return curDate;
     }
 
     public int getPopulation() {
@@ -40,6 +40,10 @@ public class Village {
     }
 
     // modify values
+
+    public void addDay() { // increase day (program works on daily increments)
+        curDate.plusDays(1);
+    }
 
     public void changePopulation(int change) {
         population += change;
