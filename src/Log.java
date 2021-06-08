@@ -13,7 +13,6 @@ public class Log {
           } catch (IOException e) {
             e.printStackTrace();
           }
-          logger.println("Date,Production");
     }
 
     // record methods
