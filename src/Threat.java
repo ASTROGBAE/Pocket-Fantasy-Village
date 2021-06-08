@@ -21,7 +21,7 @@ public class Threat extends Utilities implements Event {
     }
 
     @Override
-    public void update(Village town) {
+    public void updateEventDaily(Village town) {
         town.changeFood(attack()); // TODO: make attacks work on something other than food, lel. Maybe add attack type for different resource targets?
     }
     

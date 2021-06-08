@@ -16,7 +16,7 @@ public class Climate extends Utilities implements Event {
     }
 
     @Override
-    public void update(Village town) {
+    public void updateEventDaily(Village town) {
         // only works on the timescale of a year at present
     }
     
