@@ -3,6 +3,7 @@ import java.io.PrintWriter;
 
 public class Log {
 
+    //TODO: where to move the log object? currently in main
     //TODO: add process for when file already exists so it doesn't just throw an error...
 
     private PrintWriter logger;
@@ -19,7 +20,7 @@ public class Log {
     // TODO: add date column!!!!
 
     public void recordStart () {
-        logger.println("population,food"); // label row
+        logger.println("date,population,food"); // label row
     }
 
     public void recordDay (String[] valueArr) { // make more specific to certain values per record?
