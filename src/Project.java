@@ -34,6 +34,8 @@ public class Project extends Utilities {
             }
         }
     }
+    
+    // general methods
 
     public double updateProject(int customer) {
         int target = (int)ratio*customer; // TODO: fix event problem!
