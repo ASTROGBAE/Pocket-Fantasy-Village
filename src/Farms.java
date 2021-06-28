@@ -3,11 +3,11 @@ public class Farms extends Utilities implements Event {
     Project plots;
     
     public Farms (int plotNum) {
-        plots = new Project (10, (float) 0.5);
+        plots = new Project (10, (float) 0.5, false); // plots are not used...
     }
 
     private double calculateYield(int population) { // need to add a getValue function...
-        double maxYield = 10;
+        double maxYield = 1;
         double period = 365.26;
         return maxYield*Math.cos((2*Math.PI/period)*(period/8))+maxYield+getNoise(5.3);
     }

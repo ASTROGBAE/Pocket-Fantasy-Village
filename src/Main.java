@@ -7,8 +7,8 @@ public class Main {
 
         // pass 100 days for a test, add logger here
         genericLogger.recordStart();
-        for (int i = 0; i < 100; i ++) {
-            String[] record = {genericStage.getVillage().getPopulation()+"", genericStage.getVillage().getFood()+""}; // TODO add this log function into stage?
+        for (int i = 0; i < 360; i ++) {
+            String[] record = {genericStage.getVillage().getCurDate().toString(), genericStage.getVillage().getPopulation()+"", genericStage.getVillage().getFood()+""}; // TODO add this log function into stage?
             genericLogger.recordDay(record);
             genericStage.updateDay();
         }

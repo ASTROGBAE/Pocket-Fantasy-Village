@@ -45,8 +45,8 @@ public class Village {
         curDate.plusDays(1);
     }
 
-    public void changePopulation(int change) {
-        population += change;
+    public void setPopulation(int change) { //TODO: change from set to change?
+        population = change;
     }
 
     public void changeFood(double change) {

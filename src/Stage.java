@@ -13,6 +13,7 @@ public class Stage {
         events.add(new Climate()); // does nothing right now, void
         // projects
         events.add(new Farms(10));
+        events.add(new Population(10)); //TODO: hard-coded population start, pair better
         // threats
         events.add(new Threat("bandits", 10, 5, 20));
         events.add(new Threat("dragon", 3, 100, 500));
